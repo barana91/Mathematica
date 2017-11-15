@@ -1,0 +1,744 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     32598,        735]
+NotebookOptionsPosition[     31428,        696]
+NotebookOutlinePosition[     31774,        711]
+CellTagsIndexPosition[     31731,        708]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<C:\\\\Users\\\\studi\\\\Desktop\\\\TS4472-1 High Power.txt\>\"", 
+     ",", "\"\<Table\>\""}], "]"}]}], ";"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.715495279036207*^9, 3.715495314327176*^9}, {
+   3.7154955109415855`*^9, 3.7154955931938324`*^9}, {3.7154956516454287`*^9, 
+   3.7154956659658194`*^9}, {3.715495738081335*^9, 3.715495739811408*^9}, {
+   3.7154958430665283`*^9, 3.7154959130884657`*^9}, {3.7154959550195904`*^9, 
+   3.7154959613997746`*^9}, 3.716095116503109*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"k", "=", " ", 
+   StyleBox[
+    StyleBox[
+     RowBox[{"8.61733", 
+      StyleBox["\[Times]",
+       LineColor->GrayLevel[0.5],
+       FrontFaceColor->GrayLevel[0.5],
+       BackFaceColor->GrayLevel[0.5],
+       GraphicsColor->GrayLevel[0.5],
+       FontColor->GrayLevel[0.5]], 
+      SuperscriptBox["10", 
+       RowBox[{"-", "5"}]]}], "Unit"],
+    ZeroWidthTimes->False,
+    LineIndent->0,
+    LinebreakAdjustments->{1, 100, 1, 0, 100}]}], 
+  StyleBox[
+   StyleBox["\[NoBreak]\[InvisibleSpace]", "Unit"],
+   ZeroWidthTimes->False,
+   LineIndent->0,
+   LinebreakAdjustments->{1, 100, 1, 0, 100}], 
+  StyleBox[";", "Unit"]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"E1", "[", 
+    RowBox[{
+    "T_", ",", "\[Sigma]_", ",", "\[Alpha]_", ",", " ", "\[Beta]_", ",", 
+     "E0_"}], "]"}], ":=", " ", 
+   RowBox[{"E0", " ", "-", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"\[Alpha]", " ", "*", " ", 
+       RowBox[{"T", "^", "2"}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"\[Beta]", " ", "+", " ", "T"}], ")"}]}], " ", "-", " ", 
+    RowBox[{
+     RowBox[{"\[Sigma]", "^", "2"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"k", "*", "T"}], ")"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"E2", "[", 
+    RowBox[{"T_", ",", "\[Alpha]_", ",", " ", "\[Beta]_", ",", "E0_"}], "]"}],
+    ":=", " ", 
+   RowBox[{"E0", " ", "-", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"\[Alpha]", " ", "*", " ", 
+       RowBox[{"T", "^", "2"}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"\[Beta]", " ", "+", " ", "T"}], ")"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.7154946876064835`*^9, 3.7154946916265926`*^9}, {
+   3.715494723497488*^9, 3.715494728597609*^9}, {3.715494799799573*^9, 
+   3.7154948270302935`*^9}, {3.715494902245845*^9, 3.7154949478770943`*^9}, {
+   3.715494996498415*^9, 3.715495116161705*^9}, {3.7154951678731923`*^9, 
+   3.715495257465643*^9}, {3.7154960559323673`*^9, 3.71549610165359*^9}, {
+   3.715496218066774*^9, 3.715496268348169*^9}, 3.715496323859685*^9, {
+   3.7154964039218454`*^9, 3.715496413712118*^9}, {3.715496578313678*^9, 
+   3.7154966268749804`*^9}, 3.7154966599258814`*^9, {3.715496821172269*^9, 
+   3.715496840712802*^9}, {3.7154969711563406`*^9, 3.7154969713663707`*^9}, {
+   3.7154971806620617`*^9, 3.715497182482114*^9}, {3.7154972160630293`*^9, 
+   3.7154972178830795`*^9}, 3.7154972649743643`*^9, {3.7154973863677053`*^9, 
+   3.7154973864977083`*^9}, {3.715497517081253*^9, 3.7154975242414494`*^9}, {
+   3.715497585765073*^9, 3.7154976517668734`*^9}, 3.7154978036910486`*^9, {
+   3.7154980740619335`*^9, 3.7154980746019454`*^9}, {3.715498217825857*^9, 
+   3.715498230616232*^9}, {3.7154994016944485`*^9, 3.715499405944587*^9}, 
+   3.715501833215539*^9, 3.716095116503109*^9}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"fitmitloc", " ", "=", " ", 
+     RowBox[{"NonlinearModelFit", "[", 
+      RowBox[{
+       RowBox[{"data", "[", 
+        RowBox[{"[", 
+         RowBox[{"a", ";;", "b"}], "]"}], "]"}], ",", 
+       RowBox[{"E1", "[", 
+        RowBox[{
+        "T", ",", "\[Sigma]", ",", "\[Alpha]", ",", " ", "\[Beta]", ",", 
+         "E0"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "\[Sigma]", ",", " ", "\[Alpha]", " ", ",", " ", "\[Beta]", " ", ",", 
+         " ", "E0"}], "}"}], ",", "T"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"fitohneloc", " ", "=", "  ", 
+     RowBox[{"NonlinearModelFit", "[", 
+      RowBox[{
+       RowBox[{"data", "[", 
+        RowBox[{"[", 
+         RowBox[{"c", ";;", "d"}], "]"}], "]"}], ",", 
+       RowBox[{"E2", "[", 
+        RowBox[{"T", ",", "\[Alpha]", ",", " ", "\[Beta]", ",", "E0"}], "]"}],
+        ",", 
+       RowBox[{"{", " ", 
+        RowBox[{"\[Alpha]", " ", ",", " ", "\[Beta]", " ", ",", " ", "E0"}], 
+        "}"}], ",", "T"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"fitohneloc", "[", "\"\<ParameterTable\>\"", "]"}], 
+     RowBox[{"fitmitloc", "[", "\"\<ParameterTable\>\"", "]"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"fitohneloc", "[", "T", "]"}], ",", 
+           RowBox[{"fitmitloc", "[", "T", "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"T", ",", "0", ",", "300"}], "}"}], ",", 
+         RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Large"}]}], " ", "]"}], ",", 
+       RowBox[{"ListPlot", 
+        StyleBox["[", "Code"], 
+        RowBox[{"data", ",", 
+         RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}]}], "]"}]}], 
+      "]"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "a", ",", "1", ",", "\"\<Anfang Fit mit Lokalisierungsenergie\>\""}], 
+      "}"}], ",", "1", ",", "31", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "b", ",", "31", ",", "\"\<Ende Fit mit Lokalisierungsenergie\>\""}], 
+      "}"}], ",", "1", ",", "31", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "c", ",", "1", ",", "\"\<Anfang Fit ohne Lokalisierungsenergie\>\""}], 
+      "}"}], ",", "1", ",", "31", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "d", ",", "31", ",", "\"\<Ende Fit ohne Lokalisierungsenergie\>\""}], 
+      "}"}], ",", "1", ",", "31", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.7154947358078237`*^9, 3.715494751668234*^9}, {
+   3.7154959207386775`*^9, 3.7154959208986783`*^9}, {3.7154961057237277`*^9, 
+   3.715496106723754*^9}, {3.7154961437047434`*^9, 3.71549620746648*^9}, {
+   3.7154962701182156`*^9, 3.7154963096792994`*^9}, {3.715496366510826*^9, 
+   3.715496368230897*^9}, {3.7154964211723213`*^9, 3.715496465223523*^9}, 
+   3.71549766827733*^9, {3.7154977185486984`*^9, 3.7154977963208427`*^9}, {
+   3.715497826941684*^9, 3.715497832781845*^9}, 3.715498014500328*^9, {
+   3.7154980617816205`*^9, 3.7154980924924364`*^9}, {3.7154981703545847`*^9, 
+   3.7154981705645914`*^9}, {3.7154987078806133`*^9, 
+   3.7154987482117147`*^9}, {3.7154991366204524`*^9, 3.715499188801902*^9}, {
+   3.7154992189227*^9, 3.7154992581137953`*^9}, {3.7154995655716605`*^9, 
+   3.715499607742837*^9}, {3.715500084775866*^9, 3.715500089075962*^9}, 
+   3.715500126336976*^9, {3.7155014209542885`*^9, 3.7155014363546915`*^9}, {
+   3.7155056872206154`*^9, 3.7155057785231133`*^9}, {3.715505827944461*^9, 
+   3.7155059241270895`*^9}, {3.715506318587881*^9, 3.7155063692592535`*^9}, {
+   3.7155066360478992`*^9, 3.715506639187962*^9}, {3.7155773476687603`*^9, 
+   3.715577347828766*^9}, {3.715577378189537*^9, 3.7155774212406235`*^9}, {
+   3.7155776420325327`*^9, 3.7155777970664597`*^9}, {3.715577830467306*^9, 
+   3.7155779682607965`*^9}, 3.716095116503109*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 1, $CellContext`b$$ = 
+    31, $CellContext`c$$ = 1, $CellContext`d$$ = 31, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`a$$], 1, "Anfang Fit mit Lokalisierungsenergie"}, 1, 
+      31, 1}, {{
+       Hold[$CellContext`b$$], 31, "Ende Fit mit Lokalisierungsenergie"}, 1, 
+      31, 1}, {{
+       Hold[$CellContext`c$$], 1, "Anfang Fit ohne Lokalisierungsenergie"}, 1,
+       31, 1}, {{
+       Hold[$CellContext`d$$], 31, "Ende Fit ohne Lokalisierungsenergie"}, 1, 
+      31, 1}}, Typeset`size$$ = {842.5, {292.5, 181.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`a$24748$$ = 0, $CellContext`b$24749$$ = 
+    0, $CellContext`c$24750$$ = 0, $CellContext`d$24751$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 1, $CellContext`b$$ = 
+        31, $CellContext`c$$ = 1, $CellContext`d$$ = 31}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`a$$, $CellContext`a$24748$$, 0], 
+        Hold[$CellContext`b$$, $CellContext`b$24749$$, 0], 
+        Hold[$CellContext`c$$, $CellContext`c$24750$$, 0], 
+        Hold[$CellContext`d$$, $CellContext`d$24751$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`fitmitloc = NonlinearModelFit[
+          Part[$CellContext`data, 
+           Span[$CellContext`a$$, $CellContext`b$$]], 
+          $CellContext`E1[$CellContext`T, $CellContext`\[Sigma], \
+$CellContext`\[Alpha], $CellContext`\[Beta], $CellContext`E0], {$CellContext`\
+\[Sigma], $CellContext`\[Alpha], $CellContext`\[Beta], $CellContext`E0}, \
+$CellContext`T]; $CellContext`fitohneloc = NonlinearModelFit[
+          Part[$CellContext`data, 
+           Span[$CellContext`c$$, $CellContext`d$$]], 
+          $CellContext`E2[$CellContext`T, $CellContext`\[Alpha], \
+$CellContext`\[Beta], $CellContext`E0], {$CellContext`\[Alpha], $CellContext`\
+\[Beta], $CellContext`E0}, $CellContext`T]; $CellContext`fitohneloc[
+         "ParameterTable"] $CellContext`fitmitloc["ParameterTable"] Show[
+          Plot[{
+            $CellContext`fitohneloc[$CellContext`T], 
+            $CellContext`fitmitloc[$CellContext`T]}, {$CellContext`T, 0, 300},
+            PlotTheme -> "Detailed", ImageSize -> Large], 
+          ListPlot[$CellContext`data, PlotTheme -> "Detailed"]]), 
+      "Specifications" :> {{{$CellContext`a$$, 1, 
+          "Anfang Fit mit Lokalisierungsenergie"}, 1, 31, 
+         1}, {{$CellContext`b$$, 31, "Ende Fit mit Lokalisierungsenergie"}, 1,
+          31, 1}, {{$CellContext`c$$, 1, 
+          "Anfang Fit ohne Lokalisierungsenergie"}, 1, 31, 
+         1}, {{$CellContext`d$$, 31, "Ende Fit ohne Lokalisierungsenergie"}, 
+         1, 31, 1}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{1179., {321., 328.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.715499259323804*^9, 3.715499267980795*^9}, 
+   3.7154994123447356`*^9, {3.715499572361847*^9, 3.715499609752866*^9}, 
+   3.7155000900259843`*^9, 3.7155001273770037`*^9, {3.7155014229243236`*^9, 
+   3.715501437074709*^9}, {3.715505757962549*^9, 3.715505781243185*^9}, {
+   3.7155058317745647`*^9, 3.715505877695818*^9}, {3.715505918796941*^9, 
+   3.715505925107113*^9}, 3.7155063490586944`*^9, 3.7155067223102293`*^9, 
+   3.715577154793998*^9, 3.7155771850528154`*^9, 3.7155773483487787`*^9, 
+   3.7155773793995647`*^9, 3.7155774226106586`*^9, {3.7155777729058485`*^9, 
+   3.7155777985764976`*^9}, {3.7155778875387526`*^9, 
+   3.7155779688108096`*^9}, {3.716095116503109*^9, 3.7160951300834455`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Module", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"fitmitloc", ",", "fitohneloc"}], "}"}], ",", 
+   RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"fitmitloc", " ", "=", " ", 
+       RowBox[{"NonlinearModelFit", "[", 
+        RowBox[{
+         RowBox[{"data", "[", 
+          RowBox[{"[", 
+           RowBox[{"a", ";;", "31"}], "]"}], "]"}], ",", 
+         RowBox[{"E1", "[", 
+          RowBox[{
+          "T", ",", "\[Sigma]", ",", "\[Alpha]", ",", "\[Beta]", ",", "E0"}], 
+          "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\[Sigma]", ",", " ", "\[Alpha]", "  ", ",", " ", "E0"}], 
+          "}"}], ",", "T"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"fitohneloc", " ", "=", "  ", 
+       RowBox[{"NonlinearModelFit", "[", 
+        RowBox[{
+         RowBox[{"data", "[", 
+          RowBox[{"[", 
+           RowBox[{"b", ";;", "31"}], "]"}], "]"}], ",", 
+         RowBox[{"E2", "[", 
+          RowBox[{"T", ",", "\[Alpha]", ",", " ", "\[Beta]", ",", "E0"}], 
+          "]"}], ",", 
+         RowBox[{"{", " ", 
+          RowBox[{"\[Alpha]", "  ", ",", " ", "E0"}], "}"}], ",", "T"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"fitohneloc", "[", "\"\<ParameterTable\>\"", "]"}], 
+       RowBox[{"fitmitloc", "[", "\"\<ParameterTable\>\"", "]"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"Show", "[", 
+        RowBox[{
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"fitohneloc", "[", "T", "]"}], ",", 
+             RowBox[{"fitmitloc", "[", "T", "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"T", ",", "0", ",", "300"}], "}"}], ",", 
+           RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}], " ", ",", 
+           RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}], ",", 
+         RowBox[{"ListPlot", 
+          StyleBox["[", "Code"], 
+          RowBox[{"data", ",", 
+           RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}]}], "]"}]}], 
+        "]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", "1", ",", "31", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"b", ",", "1", ",", "31", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Beta]", ",", "400", ",", "1400", ",", "100"}], "}"}]}], 
+    "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7155060038892665`*^9, 3.7155060580607433`*^9}, {
+  3.715506374159378*^9, 3.715506377069459*^9}, {3.7155065346451063`*^9, 
+  3.715506546485427*^9}, {3.7155065813864036`*^9, 3.7155065857865257`*^9}, {
+  3.7155773440486684`*^9, 3.715577374199432*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 1, $CellContext`b$$ = 
+    1, $CellContext`\[Beta]$$ = 400, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`a$$], 1, 31, 1}, {
+      Hold[$CellContext`b$$], 1, 31, 1}, {
+      Hold[$CellContext`\[Beta]$$], 400, 1400, 100}}, Typeset`size$$ = {
+    748., {269.5, 181.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`a$26538$$ = 
+    0, $CellContext`b$26539$$ = 0, $CellContext`\[Beta]$26540$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 1, $CellContext`b$$ = 
+        1, $CellContext`\[Beta]$$ = 400}, "ControllerVariables" :> {
+        Hold[$CellContext`a$$, $CellContext`a$26538$$, 0], 
+        Hold[$CellContext`b$$, $CellContext`b$26539$$, 0], 
+        Hold[$CellContext`\[Beta]$$, $CellContext`\[Beta]$26540$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`fitmitloc$26537 = NonlinearModelFit[
+          Part[$CellContext`data, 
+           Span[$CellContext`a$$, 31]], 
+          $CellContext`E1[$CellContext`T, $CellContext`\[Sigma], \
+$CellContext`\[Alpha], $CellContext`\[Beta]$$, $CellContext`E0], \
+{$CellContext`\[Sigma], $CellContext`\[Alpha], $CellContext`E0}, \
+$CellContext`T]; $CellContext`fitohneloc$26537 = NonlinearModelFit[
+          Part[$CellContext`data, 
+           Span[$CellContext`b$$, 31]], 
+          $CellContext`E2[$CellContext`T, $CellContext`\[Alpha], \
+$CellContext`\[Beta]$$, $CellContext`E0], {$CellContext`\[Alpha], \
+$CellContext`E0}, $CellContext`T]; $CellContext`fitohneloc$26537[
+         "ParameterTable"] $CellContext`fitmitloc$26537["ParameterTable"] Show[
+          Plot[{
+            $CellContext`fitohneloc$26537[$CellContext`T], 
+            $CellContext`fitmitloc$26537[$CellContext`T]}, {$CellContext`T, 0,
+             300}, PlotTheme -> "Detailed", ImageSize -> Large], 
+          ListPlot[$CellContext`data, PlotTheme -> "Detailed"]]), 
+      "Specifications" :> {{$CellContext`a$$, 1, 31, 1}, {$CellContext`b$$, 1,
+          31, 1}, {$CellContext`\[Beta]$$, 400, 1400, 100}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1125., {296., 303.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.7155064589616947`*^9, 3.7155065486654873`*^9, 
+  3.715506648628216*^9, 3.7155771556140165`*^9, 3.7155771875428762`*^9, 
+  3.7155773450686936`*^9, 3.7155773820796323`*^9, 3.716095140833711*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Module", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"fitmitloc", ",", "fitohneloc"}], "}"}], ",", 
+   RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"fitmitloc", " ", "=", " ", 
+       RowBox[{"NonlinearModelFit", "[", 
+        RowBox[{
+         RowBox[{"data", "[", 
+          RowBox[{"[", 
+           RowBox[{"a", ";;", "31"}], "]"}], "]"}], ",", 
+         RowBox[{"E1", "[", 
+          RowBox[{
+          "T", ",", "\[Sigma]", ",", "\[Alpha]", ",", "\[Beta]", ",", "E0"}], 
+          "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\[Sigma]", ",", " ", "\[Alpha]"}], "  ", "}"}], ",", "T"}],
+         "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"fitohneloc", " ", "=", "  ", 
+       RowBox[{"NonlinearModelFit", "[", 
+        RowBox[{
+         RowBox[{"data", "[", 
+          RowBox[{"[", 
+           RowBox[{"b", ";;", "31"}], "]"}], "]"}], ",", 
+         RowBox[{"E2", "[", 
+          RowBox[{"T", ",", "\[Alpha]", ",", " ", "\[Beta]", ",", "E0"}], 
+          "]"}], ",", 
+         RowBox[{"{", " ", "\[Alpha]", "  ", "}"}], ",", "T"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"fitohneloc", "[", "\"\<ParameterTable\>\"", "]"}], 
+       RowBox[{"fitmitloc", "[", "\"\<ParameterTable\>\"", "]"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"Show", "[", 
+        RowBox[{
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"fitohneloc", "[", "T", "]"}], ",", 
+             RowBox[{"fitmitloc", "[", "T", "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"T", ",", "0", ",", "300"}], "}"}], ",", 
+           RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}], " ", ",", 
+           RowBox[{"ImageSize", "->", "Large"}]}], "]"}], ",", 
+         RowBox[{"ListPlot", 
+          StyleBox["[", "Code"], 
+          RowBox[{"data", ",", 
+           RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}]}], "]"}]}], 
+        "]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", "1", ",", "31", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"b", ",", "1", ",", "31", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Beta]", ",", "200", ",", "1400", ",", "100"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"E0", ",", "3.70", ",", "3.90", ",", "0.001"}], "}"}]}], 
+    "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.715506759261237*^9, 3.715506805222497*^9}, {
+   3.7155068569439125`*^9, 3.7155068572839174`*^9}, 3.715507160692204*^9, {
+   3.715577285297208*^9, 3.715577364299181*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 1, $CellContext`b$$ = 
+    1, $CellContext`E0$$ = 3.7, $CellContext`\[Beta]$$ = 200, Typeset`show$$ =
+     True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`a$$], 1, 31, 1}, {
+      Hold[$CellContext`b$$], 1, 31, 1}, {
+      Hold[$CellContext`\[Beta]$$], 200, 1400, 100}, {
+      Hold[$CellContext`E0$$], 3.7, 3.9, 0.001}}, Typeset`size$$ = {
+    748., {252., 181.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`a$27340$$ = 
+    0, $CellContext`b$27341$$ = 0, $CellContext`\[Beta]$27342$$ = 
+    0, $CellContext`E0$27343$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 1, $CellContext`b$$ = 
+        1, $CellContext`E0$$ = 3.7, $CellContext`\[Beta]$$ = 200}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`a$$, $CellContext`a$27340$$, 0], 
+        Hold[$CellContext`b$$, $CellContext`b$27341$$, 0], 
+        Hold[$CellContext`\[Beta]$$, $CellContext`\[Beta]$27342$$, 0], 
+        Hold[$CellContext`E0$$, $CellContext`E0$27343$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`fitmitloc$27339 = NonlinearModelFit[
+          Part[$CellContext`data, 
+           Span[$CellContext`a$$, 31]], 
+          $CellContext`E1[$CellContext`T, $CellContext`\[Sigma], \
+$CellContext`\[Alpha], $CellContext`\[Beta]$$, $CellContext`E0$$], \
+{$CellContext`\[Sigma], $CellContext`\[Alpha]}, $CellContext`T]; \
+$CellContext`fitohneloc$27339 = NonlinearModelFit[
+          Part[$CellContext`data, 
+           Span[$CellContext`b$$, 31]], 
+          $CellContext`E2[$CellContext`T, $CellContext`\[Alpha], \
+$CellContext`\[Beta]$$, $CellContext`E0$$], {$CellContext`\[Alpha]}, \
+$CellContext`T]; $CellContext`fitohneloc$27339[
+         "ParameterTable"] $CellContext`fitmitloc$27339["ParameterTable"] Show[
+          Plot[{
+            $CellContext`fitohneloc$27339[$CellContext`T], 
+            $CellContext`fitmitloc$27339[$CellContext`T]}, {$CellContext`T, 0,
+             300}, PlotTheme -> "Detailed", ImageSize -> Large], 
+          ListPlot[$CellContext`data, PlotTheme -> "Detailed"]]), 
+      "Specifications" :> {{$CellContext`a$$, 1, 31, 1}, {$CellContext`b$$, 1,
+          31, 1}, {$CellContext`\[Beta]$$, 200, 1400, 
+         100}, {$CellContext`E0$$, 3.7, 3.9, 0.001}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1121., {301., 308.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.715506793472172*^9, 3.7155068059025116`*^9}, 
+   3.715506857873931*^9, 3.715507162522256*^9, 3.7155771560140266`*^9, 
+   3.7155771898129334`*^9, {3.7155773088477793`*^9, 3.715577364919197*^9}, 
+   3.7160951434237733`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.715497579244898*^9, 3.715497579244898*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"E1", "[", 
+        RowBox[{
+        "T", ",", "\[Sigma]", ",", "0.001198211366820551`", ",", " ", "1200", 
+         ",", "3.818967014012621`"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"T", ",", "0", ",", "300"}], "}"}]}], "]"}], ",", 
+     RowBox[{"ListPlot", "[", "data", "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Sigma]", ",", " ", "0", ",", "0.017", ",", "0.0001"}], "}"}]}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.715501864866397*^9, 3.715501952508787*^9}, {
+   3.7155019896298027`*^9, 3.715502093372634*^9}, 3.7155021295292835`*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Sigma]$$ = 0.014100000000000001`, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Sigma]$$], 0, 0.017, 0.0001}}, Typeset`size$$ = {
+    360., {109., 112.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`\[Sigma]$16640$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Sigma]$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Sigma]$$, $CellContext`\[Sigma]$16640$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        Plot[
+         $CellContext`E1[$CellContext`T, $CellContext`\[Sigma]$$, 
+          0.001198211366820551, 1200, 3.818967014012621], {$CellContext`T, 0, 
+          300}], 
+        ListPlot[$CellContext`data]], 
+      "Specifications" :> {{$CellContext`\[Sigma]$$, 0, 0.017, 0.0001}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {154., 161.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.7155021010428443`*^9, 3.715502130049297*^9}, 
+   3.715577157124056*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ListPlot", "::", "lpn"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(data\\)\[NoBreak] is not a list of numbers \
+or pairs of numbers. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/ListPlot\\\", ButtonNote -> \\\"ListPlot::lpn\\\"]\
+\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.715577159634118*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], ":", 
+  " ", "\<\"Could not combine the graphics objects in \
+\[NoBreak]\\!\\(Show[\\(\\(\\*GraphicsBox[List[], List[Rule[DisplayFunction, \
+Identity], Rule[AspectRatio, NCache[Power[GoldenRatio, -1], \
+0.6180339887498948`]], Rule[Axes, List[True, True]], Rule[AxesLabel, \
+List[None, None]], Rule[AxesOrigin, List[0, 0]], RuleDelayed[DisplayFunction, \
+Identity], Rule[Frame, List[List[False, False], List[False, False]]], \
+Rule[FrameLabel, List[List[None, None], List[None, None]]], Rule[FrameTicks, \
+List[List[Automatic, Automatic], List[Automatic, Automatic]]], \
+Rule[GridLines, List[None, None]], Rule[GridLinesStyle, \
+Directive[GrayLevel[0.5`, 0.4`]]], Rule[Method, \
+List[Rule[\\\"DefaultBoundaryStyle\\\", Automatic], Rule[\\\"ScalingFunctions\
+\\\", None]]], Rule[PlotRange, List[List[0, 300], List[0.`, 0.`]]], \
+Rule[PlotRangeClipping, True], Rule[PlotRangePadding, \
+List[List[Scaled[0.02`], Scaled[0.02`]], List[Scaled[0.05`], \
+Scaled[0.05`]]]], Rule[Ticks, List[Automatic, Automatic]]]], \
+\\(\\(ListPlot[data]\\)\\)\\)\\)]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", ButtonNote -> \
+\\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.715577159664119*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ListPlot", "::", "lpn"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(data\\)\[NoBreak] is not a list of numbers \
+or pairs of numbers. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/ListPlot\\\", ButtonNote -> \\\"ListPlot::lpn\\\"]\
+\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.715577175921156*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Show", "::", "gcomb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Could not combine the graphics objects in \
+\[NoBreak]\\!\\(Show[\\(\\(\\*GraphicsBox[List[], List[Rule[DisplayFunction, \
+Identity], Rule[AspectRatio, NCache[Power[GoldenRatio, -1], \
+0.6180339887498948`]], Rule[Axes, List[True, True]], Rule[AxesLabel, \
+List[None, None]], Rule[AxesOrigin, List[0, 0]], RuleDelayed[DisplayFunction, \
+Identity], Rule[Frame, List[List[False, False], List[False, False]]], \
+Rule[FrameLabel, List[List[None, None], List[None, None]]], Rule[FrameTicks, \
+List[List[Automatic, Automatic], List[Automatic, Automatic]]], \
+Rule[GridLines, List[None, None]], Rule[GridLinesStyle, \
+Directive[GrayLevel[0.5`, 0.4`]]], Rule[Method, \
+List[Rule[\\\"DefaultBoundaryStyle\\\", Automatic], Rule[\\\"ScalingFunctions\
+\\\", None]]], Rule[PlotRange, List[List[0, 300], List[0.`, 0.`]]], \
+Rule[PlotRangeClipping, True], Rule[PlotRangePadding, \
+List[List[Scaled[0.02`], Scaled[0.02`]], List[Scaled[0.05`], \
+Scaled[0.05`]]]], Rule[Ticks, List[Automatic, Automatic]]]], \
+\\(\\(ListPlot[data]\\)\\)\\)\\)]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Show/gcomb\\\", ButtonNote -> \
+\\\"Show::gcomb\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7155771759511547`*^9}]
+}, Open  ]]
+},
+WindowSize->{666, 708},
+WindowMargins->{{144, Automatic}, {Automatic, 87}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 620, 12, 52, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[1203, 36, 2890, 69, 92, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[4096, 107, 4216, 94, 272, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[8315, 203, 4440, 79, 666, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12792, 287, 2669, 64, 212, "Input"],
+Cell[15464, 353, 3252, 60, 616, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18753, 418, 2622, 64, 212, "Input"],
+Cell[21378, 484, 3503, 66, 626, "Output"]
+}, Open  ]],
+Cell[24896, 553, 160, 3, 31, "Input"],
+Cell[CellGroupData[{
+Cell[25081, 560, 713, 18, 72, "Input"],
+Cell[25797, 580, 1892, 38, 332, "Output"],
+Cell[27692, 620, 449, 10, 21, "Message"],
+Cell[28144, 632, 1399, 23, 56, "Message"],
+Cell[29546, 657, 449, 10, 21, "Message"],
+Cell[29998, 669, 1414, 24, 56, "Message"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

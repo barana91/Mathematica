@@ -1,0 +1,4024 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    163463,       4015]
+NotebookOptionsPosition[    156694,       3844]
+NotebookOutlinePosition[    157040,       3859]
+CellTagsIndexPosition[    156997,       3856]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  StyleBox[
+   RowBox[{"Raumtemperatur", " ", "IQE", " ", "Bestimmung"}], 
+   "Title"]}]], "Input",
+ CellChangeTimes->{{3.7092760072770395`*^9, 3.709276008921139*^9}, {
+  3.709276083393811*^9, 3.709276095408826*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Konstante Koeffzienten", "Section",
+ CellChangeTimes->{{3.7092761367023664`*^9, 3.7092761653664856`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"a0GaN", "=", " ", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"2", "\[Times]", 
+        RowBox[{"10", "^", "5"}]}], ",", "\"\<Centimeter^(-1)\>\""}], "]"}]}],
+     ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"a0AlN", "=", " ", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"1", "\[Times]", 
+        RowBox[{"10", "^", "5"}]}], ",", "\"\<Centimeter^(-1)\>\""}], "]"}]}],
+     ";"}], "\n", 
+   RowBox[{
+    RowBox[{"E0", "=", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"6.424", ",", "\"\<eV\>\""}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AlN", "=", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"6.28", ",", " ", "\"\<eV\>\""}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"GaN", "=", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"3.44", ",", " ", "\"\<eV\>\""}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AlContent", ":=", " ", "0.72"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"a0", "=", " ", 
+     RowBox[{
+      RowBox[{"a0AlN", " ", "*", "AlContent"}], "+", " ", 
+      RowBox[{"a0GaN", "*", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "AlContent"}], ")"}]}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"EG", "=", 
+     RowBox[{
+      RowBox[{"AlN", "\[Times]", 
+       RowBox[{"(", "AlContent", ")"}]}], "+", 
+      RowBox[{"GaN", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "AlContent"}], ")"}]}]}]}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.7092761665692883`*^9, 3.7092761999655647`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Grafische Darstellung ", "Section",
+ CellChangeTimes->{{3.7092761367023664`*^9, 3.7092761653664856`*^9}, {
+  3.709276228247429*^9, 3.709276238318144*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{{3.7124628838460026`*^9, 3.7124628894961543`*^9}, {
+   3.7124638476716895`*^9, 3.712463860362028*^9}, {3.7124638967630224`*^9, 
+   3.712463903643182*^9}, 3.7124643733757243`*^9, 3.712465822714327*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"4320.56`", ",", "598.729963893374`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4008.16`", ",", "549.362117918928`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2799.56`", ",", "393.47453586539`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2629.31`", ",", "331.001971011151`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2221.67`", ",", "317.310896509394`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2029.26`", ",", "260.852796945781`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1822.42`", ",", "234.693857580495`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1647.98`", ",", "216.443866855658`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1567.33`", ",", "214.978234576961`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1408.`", ",", "193.430448441586`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1062.8`", ",", "131.846236737808`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"969.07`", ",", "120.303972294906`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1155.76`", ",", "148.560540343601`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1060.62`", ",", "131.933725099036`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"627.39`", ",", "79.2899514206983`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"575.95`", ",", "70.5804282316069`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"402.2`", ",", "50.0024908975241`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"377.9`", ",", "42.0674941423201`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"315.78`", ",", "37.7509330483492`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"294.72`", ",", "34.3248775613593`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"263.53`", ",", "30.5922659329515`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"266.77`", ",", "29.5756894664025`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"247.48`", ",", "26.302297549037`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"172.86`", ",", "18.2626639523787`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"162.34`", ",", "14.8171801276704`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"137.18`", ",", "13.0258550872276`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"125.29`", ",", "10.73357231192`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"112.53`", ",", "9.69095909606706`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"101.76`", ",", "8.1046537719764`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"96.77`", ",", "7.72300183534306`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"86.93`", ",", "6.84663681228192`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"65.62`", ",", "4.26103324330745`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"59.83`", ",", "3.71034468110324`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"71.36`", ",", "4.8138107136721`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"65.5`", ",", "4.21061407437029`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"38.75`", ",", "2.38361010019895`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"35.57`", ",", "2.16024555219909`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"24.83`", ",", "1.5002145662655`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"23.33`", ",", "1.20219598274162`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"19.5`", ",", "1.0740868231977`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"16.28`", ",", "0.875287761039326`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"11.49`", ",", "0.538747146390252`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"10.65`", ",", "0.470908932583269`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7.44`", ",", "0.330022691398479`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6.99`", ",", "0.27786182397938`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5.91`", ",", "0.244719489530491`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5.4`", ",", "0.208621849012775`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4.85`", ",", "0.189477524921647`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4.38`", ",", "0.162301587020822`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4.18`", ",", "0.160538246735375`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3.75`", ",", "0.174405023903845`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2.83`", ",", "0.0950510736690631`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2.59`", ",", "0.0953515537224894`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3.08`", ",", "0.0930251308951806`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2.81`", ",", "0.0854718230257853`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.67`", ",", "0.0563262581145735`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.53`", ",", "0.042235578672006`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.08`", ",", "0.0275608099429785`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.`", ",", "0.0196591772754546`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.84`", ",", "0.0140826836000419`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.69`", ",", "0.0145672252272752`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.7124638975430193`*^9, 3.712463915183487*^9}}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"mmm", "=", 
+   RowBox[{"N", "[", 
+    RowBox[{"Import", "[", 
+     RowBox[{
+     "\"\<C:\\\\Users\\\\studi\\\\Documents\\\\TS3931 swap.txt\>\"", ",", 
+      "\"\<Table\>\""}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"exPOWden", " ", "=", " ", 
+   RowBox[{"mmm", "[", 
+    RowBox[{"[", 
+     RowBox[{";;", ",", "1"}], "]"}], "]"}]}], " ", 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"int", " ", "=", " ", 
+   RowBox[{"mmm", "[", 
+    RowBox[{"[", 
+     RowBox[{";;", ",", "2"}], "]"}], "]"}]}], " ", 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"name1", " ", "=", " ", 
+   RowBox[{"InputString", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mmm", " ", "=", " ", 
+   RowBox[{"Transpose", "[", 
+    RowBox[{"{", 
+     RowBox[{"int", ",", "exPOWden"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", "\[IndentingNewLine]", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"mmm", ",", 
+     RowBox[{"PlotLegends", "\[Rule]", "name1"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "400"}], ",", 
+     RowBox[{
+     "PlotLabel", "\[Rule]", " ", 
+      "\"\<Intensity dependence on excitation power density at 300K\>\""}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<Integrated  PL Int.\>\"", ",", "20"}], "]"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<Excitation power density\>\"", ",", "20"}], "]"}]}], 
+       "}"}]}], ",", 
+     RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}]}], "]"}], 
+   "\[IndentingNewLine]", "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.709276303807827*^9, 3.7092763758468747`*^9}, {
+   3.7092764197861834`*^9, 3.7092764354876566`*^9}, {3.7092766170457563`*^9, 
+   3.7092766183326125`*^9}, {3.7092767255971594`*^9, 3.709276732516775*^9}, {
+   3.7092767869540825`*^9, 3.7092767943370075`*^9}, {3.70927687111522*^9, 
+   3.7092768974667954`*^9}, {3.709276992384104*^9, 3.7092770078003864`*^9}, {
+   3.7092770807940755`*^9, 3.7092772363878326`*^9}, {3.709277272885178*^9, 
+   3.709277283989582*^9}, {3.7092773278918676`*^9, 3.709277343661383*^9}, {
+   3.709277384416567*^9, 3.7092776301114454`*^9}, {3.7092776650917788`*^9, 
+   3.7092776945023932`*^9}, {3.7092786607969103`*^9, 3.709278674244879*^9}, 
+   3.7092787064073334`*^9, {3.7092788498289948`*^9, 3.7092788559941053`*^9}, {
+   3.712325509762537*^9, 3.712325514002652*^9}, {3.712325658116491*^9, 
+   3.712325676986997*^9}, {3.712460602885214*^9, 3.7124606417062473`*^9}, {
+   3.712463851601797*^9, 3.7124638627220917`*^9}, {3.712463906333274*^9, 
+   3.7124639068432674`*^9}, {3.7124658450949244`*^9, 
+   3.7124658464949617`*^9}, {3.712466990201165*^9, 3.712466998261378*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"mm1", " ", "=", 
+   RowBox[{"ArrayReshape", "[", 
+    RowBox[{"mmm", ",", 
+     RowBox[{"{", 
+      RowBox[{"61", ",", "2"}], "}"}]}], "]"}]}], " ", 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ll", "=", 
+   RowBox[{
+    RowBox[{"mm1", "[", 
+     RowBox[{"[", 
+      RowBox[{"All", ",", "1"}], "]"}], "]"}], "*", "x", "*", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "-", "r"}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"QuantityMagnitude", "[", "E0", "]"}], ")"}]}], "*", "6.241509",
+     "*", 
+    RowBox[{"10", "^", "21"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[ODoubleDot]\[ODoubleDot]", " ", "=", " ", 
+   RowBox[{"mm1", "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sort1", " ", "=", " ", 
+   RowBox[{"Sort", "[", 
+    RowBox[{"Transpose", "[", 
+     RowBox[{"{", 
+      RowBox[{"\[ODoubleDot]\[ODoubleDot]", ",", "ll"}], "}"}], "]"}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Row", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ListPlot", 
+       StyleBox["[", "Code"], 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"sort1", "[", 
+           RowBox[{"[", 
+            RowBox[{"ii", " ", ";;", " ", "i"}], "]"}], "]"}], "  ", "/.", 
+          RowBox[{"x", "\[Rule]", " ", "\[Alpha]"}]}], "  ", "/.", 
+         RowBox[{"r", "\[Rule]", "R"}]}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", " ", "Full"}], ",", " ", 
+        RowBox[{"PlotLegends", "\[Rule]", 
+         RowBox[{"{", "name1", "}"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"FrameLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Integrated  PL Int.\>\"", ",", "20"}], "]"}], ",", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Generationsrate\>\"", ",", "20"}], "]"}]}], "}"}]}], 
+        ",", 
+        RowBox[{"ImageSize", "\[Rule]", " ", "400"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}]}], "]"}], ",", 
+      RowBox[{"ListLogLogPlot", 
+       StyleBox["[", "Code"], 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           StyleBox["N", "Code"], 
+           StyleBox["[", "Code"], 
+           RowBox[{"sort1", "[", 
+            RowBox[{"[", 
+             RowBox[{"ii", " ", ";;", " ", "i"}], "]"}], "]"}], "]"}], "  ", "/.", 
+          RowBox[{"x", "\[Rule]", " ", "\[Alpha]"}]}], "  ", "/.", 
+         RowBox[{"r", "\[Rule]", "R"}]}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", " ", "Full"}], ",", " ", 
+        RowBox[{"PlotLegends", "\[Rule]", 
+         RowBox[{"{", "name1", "}"}]}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "400"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"FrameLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Integrated  PL Int.\>\"", ",", "20"}], "]"}], ",", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Generationsrate\>\"", ",", "20"}], "]"}]}], "}"}]}], 
+        ",", "\[IndentingNewLine]", 
+        RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}]}], "]"}]}], 
+     "}"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Alpha]", ",", " ", 
+     RowBox[{"1", "*", 
+      RowBox[{"10", "^", "4"}]}], ",", " ", 
+     RowBox[{"1", "*", 
+      RowBox[{"10", "^", "8"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"R", ",", " ", "0.1", ",", "1.0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "39", ",", "\"\<Anzahl Messdaten bis\>\""}], "}"}], 
+     ",", "1", ",", "39", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ii", " ", ",", "20", ",", "\"\<Anzahl Messdaten von\>\""}], 
+      "}"}], ",", "1", ",", "39", ",", "1"}], "}"}]}], "]"}], "\n", 
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`i$$ = 39, $CellContext`ii$$ = 
+    1, $CellContext`R$$ = 0.657, $CellContext`\[Alpha]$$ = 10000, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Alpha]$$], 10000, 100000000}, {
+      Hold[$CellContext`R$$], 0.1, 1.}, {{
+       Hold[$CellContext`i$$], 39, "Anzahl Messdaten bis"}, 1, 39, 1}, {{
+       Hold[$CellContext`ii$$], 20, "Anzahl Messdaten von"}, 1, 39, 1}}, 
+    Typeset`size$$ = {875., {123., 127.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`\[Alpha]$129270$$ = 0, $CellContext`R$129271$$ = 
+    0, $CellContext`i$129272$$ = 0, $CellContext`ii$129273$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`i$$ = 39, $CellContext`ii$$ = 
+        20, $CellContext`R$$ = 0.1, $CellContext`\[Alpha]$$ = 10000}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$129270$$, 0], 
+        Hold[$CellContext`R$$, $CellContext`R$129271$$, 0], 
+        Hold[$CellContext`i$$, $CellContext`i$129272$$, 0], 
+        Hold[$CellContext`ii$$, $CellContext`ii$129273$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Row[{
+         ListPlot[
+          ReplaceAll[
+           ReplaceAll[
+            Part[$CellContext`sort1, 
+             
+             Span[$CellContext`ii$$, $CellContext`i$$]], $CellContext`x -> \
+$CellContext`\[Alpha]$$], $CellContext`r -> $CellContext`R$$], PlotRange -> 
+          Full, PlotLegends -> {$CellContext`name1}, FrameLabel -> {
+            Style["Integrated  PL Int.", 20], 
+            Style["Generationsrate", 20]}, ImageSize -> 400, PlotTheme -> 
+          "Detailed"], 
+         ListLogLogPlot[
+          ReplaceAll[
+           ReplaceAll[
+            N[
+             Part[$CellContext`sort1, 
+              
+              Span[$CellContext`ii$$, $CellContext`i$$]]], $CellContext`x -> \
+$CellContext`\[Alpha]$$], $CellContext`r -> $CellContext`R$$], PlotRange -> 
+          Full, PlotLegends -> {$CellContext`name1}, ImageSize -> 400, 
+          FrameLabel -> {
+            Style["Integrated  PL Int.", 20], 
+            Style["Generationsrate", 20]}, PlotTheme -> "Detailed"]}], 
+      "Specifications" :> {{$CellContext`\[Alpha]$$, 10000, 
+         100000000}, {$CellContext`R$$, 0.1, 
+         1.}, {{$CellContext`i$$, 39, "Anzahl Messdaten bis"}, 1, 39, 
+         1}, {{$CellContext`ii$$, 20, "Anzahl Messdaten von"}, 1, 39, 1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{926., {209., 216.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]}], "Input",
+ CellChangeTimes->{
+  3.7092787297178802`*^9, {3.7092787776058207`*^9, 3.7092787801605244`*^9}, 
+   3.709278818528116*^9, {3.709278857971424*^9, 3.7092788598937063`*^9}, {
+   3.7092789358613763`*^9, 3.709279081927802*^9}, {3.7111145368913765`*^9, 
+   3.7111145387285957`*^9}, 3.7113791751576633`*^9, 3.7123232299702573`*^9, 
+   3.7123235661692195`*^9, {3.71232567901705*^9, 3.7123256810071015`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7124659706323557`*^9, 3.712465972182376*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.712465973892438*^9, 3.7124659752324533`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"x", "=", 
+       RowBox[{"1", "*", 
+        RowBox[{"10", "^", "5"}]}]}], ",", " ", 
+      RowBox[{"r", ":=", "0.44"}]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Manipulate", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"par1", " ", "=", " ", 
+        RowBox[{"FindFit", "[", 
+         RowBox[{
+          RowBox[{"sort1", "[", 
+           RowBox[{"[", 
+            RowBox[{"n", " ", ";;", " ", "m"}], "]"}], "]"}], ",", 
+          RowBox[{
+           RowBox[{"z1", "*", 
+            SqrtBox["y"]}], "+", " ", 
+           RowBox[{"z2", " ", "*", " ", "y"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"z1", ",", "z2"}], "}"}], ",", "y"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"a111", "=", 
+        RowBox[{"(", 
+         RowBox[{"z1", "/.", 
+          RowBox[{"par1", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], ")"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"a222", "=", 
+        RowBox[{"(", 
+         RowBox[{"z2", "/.", 
+          RowBox[{"par1", "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}], ")"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Show", "[", 
+        RowBox[{
+         RowBox[{"ListPlot", 
+          StyleBox["[", "Code"], 
+          RowBox[{
+           RowBox[{
+            StyleBox["sort1", "Code"], "[", 
+            RowBox[{"[", 
+             RowBox[{"n", " ", ";;", " ", "m"}], "]"}], "]"}], ",", 
+           RowBox[{"PlotLegends", "\[Rule]", 
+            RowBox[{"{", "}"}]}], ",", 
+           RowBox[{"PlotTheme", "\[Rule]", " ", "\"\<Detailed\>\""}], ",", 
+           RowBox[{"ImageSize", "\[Rule]", "400"}]}], "]"}], ",", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"{", "  ", 
+            RowBox[{
+             RowBox[{"a111", "*", 
+              SqrtBox["p"]}], "+", 
+             RowBox[{"a222", "*", "p"}]}], " ", "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"p", ",", "0", ",", "6000"}], "}"}], ",", 
+           RowBox[{"PlotRange", "\[Rule]", "Automatic"}]}], "]"}]}], "]"}]}], 
+      " ", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"n", ",", "1", ",", "\"\<Anzahl Messdaten bis\>\""}], "}"}], 
+        ",", "1", ",", "39", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"m", ",", "39", ",", "\"\<Anzahl Messdaten von\>\""}], "}"}],
+         ",", "39", ",", "60", ",", "1"}], "}"}]}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGCQBGIQ/cu5anHk9NeO0yoZN4Jolumbt4LoqB1vDoLoI2s+
+XATRN1h+XwHRW4/sfA+ird7kfgPR2xNO+cYCaeU3r/xA9IufTKZxQPpW2kYX
+EJ1io5YCotWnMKeBaJ7eO9NBdPHKubNAtOpS1WcgOo7RCEybvOPUSQDScqtD
+wDSH6bqTT5a9djwX+OUciJ7+S/P2xhWvHQumFd8B0YuSXj4E0eu1frwC0Rqe
+/d9AtOMm0R8g+lldJssmIH3qtTwHiF71JlIERHtGuEqD6ANL7iuD6H9M/Kog
+WsB1ki6I/nRvN5i+mlppBaJlZn11ANEbUqXdQPTSFgcwfcPh0DMwbV79HEQX
+eHX8/AKiBep+g+i0qlTmr0DaJbiQBURzmft2fgfSPd1Hu0B0l/SpOSB6zbHL
+y0A0AAdE4F0=
+  "]],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`m$$ = 39, $CellContext`n$$ = 1, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 1, "Anzahl Messdaten bis"}, 1, 39, 1}, {{
+       Hold[$CellContext`m$$], 39, "Anzahl Messdaten von"}, 39, 60, 1}}, 
+    Typeset`size$$ = {400., {116., 120.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`n$1465430$$ = 0, $CellContext`m$1465431$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`m$$ = 39, $CellContext`n$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$1465430$$, 0], 
+        Hold[$CellContext`m$$, $CellContext`m$1465431$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ($CellContext`par1 = FindFit[
+          Part[$CellContext`sort1, 
+           
+           Span[$CellContext`n$$, $CellContext`m$$]], $CellContext`z1 \
+$CellContext`y^
+            Rational[
+             1, 2] + $CellContext`z2 $CellContext`y, {$CellContext`z1, \
+$CellContext`z2}, $CellContext`y]; $CellContext`a111 = 
+        ReplaceAll[$CellContext`z1, 
+          Part[$CellContext`par1, 1]]; $CellContext`a222 = 
+        ReplaceAll[$CellContext`z2, 
+          Part[$CellContext`par1, 2]]; Show[
+         ListPlot[
+          Part[$CellContext`sort1, 
+           Span[$CellContext`n$$, $CellContext`m$$]], PlotLegends -> {}, 
+          PlotTheme -> "Detailed", ImageSize -> 400], 
+         Plot[{$CellContext`a111 $CellContext`p^
+             Rational[
+              1, 2] + $CellContext`a222 $CellContext`p}, {$CellContext`p, 0, 
+           6000}, PlotRange -> Automatic]]), 
+      "Specifications" :> {{{$CellContext`n$$, 1, "Anzahl Messdaten bis"}, 1, 
+         39, 1}, {{$CellContext`m$$, 39, "Anzahl Messdaten von"}, 39, 60, 1}},
+       "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{451., {175., 182.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.7113790275341187`*^9, 3.711379065775038*^9, 3.7123232606610775`*^9, {
+   3.7123233506234736`*^9, 3.712323377534192*^9}, 3.712323416635234*^9, 
+   3.7123235211380167`*^9, {3.712323604966358*^9, 3.7123236505775747`*^9}, 
+   3.712323682168416*^9, 3.7123237667906733`*^9, 3.7123238292177486`*^9, {
+   3.7123238735289288`*^9, 3.7123238810091295`*^9}, {3.712323915990061*^9, 
+   3.712323950620983*^9}, 3.712324022852908*^9, 3.7123240841045403`*^9, 
+   3.7123241468862133`*^9, 3.7123256947974763`*^9, 3.712465862755393*^9, 
+   3.7124662314580245`*^9, 3.7124671822127376`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"par5", "[", 
+   RowBox[{"ai_", ",", "bi_"}], "]"}], ":=", 
+  RowBox[{"FindFit", "[", 
+   RowBox[{
+    RowBox[{"sort1", "[", 
+     RowBox[{"[", 
+      RowBox[{"ai", " ", ";;", " ", "bi"}], "]"}], "]"}], ",", 
+    RowBox[{
+     RowBox[{"z1", "*", 
+      SqrtBox["y"]}], "+", " ", 
+     RowBox[{"z2", " ", "*", " ", "y"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"z1", ",", "z2"}], "}"}], ",", "y"}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ai", " ", "=", " ", "25"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bi", " ", "=", " ", "60"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"eins", " ", "=", " ", 
+   RowBox[{"par5", "[", 
+    RowBox[{"ai", ",", "bi"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a111", "=", 
+   RowBox[{"(", 
+    RowBox[{"z1", "/.", 
+     RowBox[{"eins", "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ")"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a222", "=", 
+   RowBox[{"(", 
+    RowBox[{"z2", "/.", 
+     RowBox[{"eins", "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}], ")"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Erg1", "=", 
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"a111", "/", 
+         SqrtBox["a222"]}], "*", "B1"}], " ", "+", " ", 
+       RowBox[{"B1", "^", "2"}]}], " ", "\[Equal]", " ", 
+      RowBox[{"sort1", "[", 
+       RowBox[{"[", 
+        RowBox[{"n", ",", "2"}], "]"}], "]"}]}], ",", "B1"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Ergebnisse", " ", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{"Erg1", ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "ai", ",", "bi", ",", "1"}], "}"}]}], "]"}]}], ";"}],
+   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"anm", "=", 
+   RowBox[{"B1", "/.", 
+    RowBox[{"Ergebnisse", "[", 
+     RowBox[{"[", 
+      RowBox[{";;", ",", "2"}], "]"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"IQE1Tab", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"anm", "[", 
+       RowBox[{"[", ";;", "]"}], "]"}], "^", "2"}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"sort1", "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"ai", ";;", " ", "bi"}], ",", "2"}], "]"}], "]"}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"snew", "=", 
+   RowBox[{"Sort", "[", 
+    RowBox[{"s", "[", 
+     RowBox[{"[", 
+      RowBox[{";;", ",", "2"}], "]"}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"snew1", "=", " ", 
+   RowBox[{"snew", "[", 
+    RowBox[{"[", 
+     RowBox[{"ai", ";;", "bi"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"t11", "=", 
+   RowBox[{"Transpose", "[", 
+    RowBox[{"{", 
+     RowBox[{"snew1", ",", "IQE1Tab"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListLogLogPlot", "[", 
+  RowBox[{"t11", ",", 
+   RowBox[{"PlotLegends", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{
+      RowBox[{"{", "TS3931", " ", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0.85", ",", "0.25"}], "}"}]}], "]"}]}], ",", 
+   RowBox[{"PlotStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"Black", ",", " ", "Red", ",", "Blue", ",", " ", "Magenta"}], 
+     "}"}]}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "Full"}], ",", " ", 
+   RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", " ", 
+    RowBox[{"0.8", "/", "1"}]}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<IQE\>\"", ",", "\"\<Excitation Power Density\>\""}], 
+     "}"}]}]}], "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.7123245607472467`*^9, 3.7123246453495007`*^9}, {
+   3.712324724381607*^9, 3.7123247401720276`*^9}, {3.712324776522995*^9, 
+   3.712324797413556*^9}, {3.712324828694384*^9, 3.7123249026363573`*^9}, {
+   3.7123249360172462`*^9, 3.7123249889786563`*^9}, {3.7123253258176346`*^9, 
+   3.712325391149376*^9}, {3.712325701747653*^9, 3.712325702137663*^9}, {
+   3.7124606807472887`*^9, 3.712460683567388*^9}, {3.712462837704772*^9, 
+   3.7124628424449005`*^9}, 3.7124629038365364`*^9, {3.7124630272498245`*^9, 
+   3.712463027459831*^9}, {3.7124631303425756`*^9, 3.7124631384627867`*^9}, {
+   3.712463179923893*^9, 3.712463181513938*^9}, {3.7124632177949295`*^9, 
+   3.712463241625537*^9}, {3.7124632997070866`*^9, 3.7124633250877633`*^9}, {
+   3.712463497732365*^9, 3.712463554213869*^9}, {3.712463680047224*^9, 
+   3.712463683337331*^9}, {3.712463743378913*^9, 3.712463780549902*^9}, {
+   3.7124638132907734`*^9, 3.7124638199109497`*^9}, {3.712464449347725*^9, 
+   3.7124644758684406`*^9}, {3.7124650354033422`*^9, 3.712465048743697*^9}, {
+   3.7124650963849926`*^9, 3.7124651253857417`*^9}, {3.7124651670668764`*^9, 
+   3.712465170256961*^9}, {3.7124652660394907`*^9, 3.7124652865500603`*^9}, {
+   3.7124653464416356`*^9, 3.712465350991754*^9}, {3.7124656214589624`*^9, 
+   3.7124656256090717`*^9}, {3.712465674780383*^9, 3.7124657009510803`*^9}, {
+   3.71246591536172*^9, 3.7124659239619513`*^9}, {3.7124662699690514`*^9, 
+   3.712466270479066*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7124659290820847`*^9, {3.7124671656423006`*^9, 3.7124671873128757`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  GraphicsBox[{{{}, {{}, 
+      {RGBColor[1, 0, 1], PointSize[0.019444444444444445`], AbsoluteThickness[
+       1.6], PointBox[CompressedData["
+1:eJwBUQKu/SFib1JlAgAAACQAAAACAAAACZMuZKil6D87Gg2RoIDqvxDvoCy0
+y+s/NnA/jaFy6b+6vbn5Xfr0P/Xlsmq0qeS/x5GyxHEA9z+lOV8W5sbjv+yR
+yiczMfc/tsdMwGjC47+n5U+r0ST5PwQVrYCx+OK/wcedALbH/j/pl65UiTvh
+v0DKTiuHWgBAapkNzj1a4L8TW+tcUL0AQI6U1Zvf6N+/fELacWcrAkAooT84
+ql/ev9mZ88es/AJApgHPOf3P3L9m+mfdFYkEQBO+Mzwojtu//7Uy8viQBUA7
+hbcNKlzZv5NYM5YmPQdAAQ/VDfuV2L/CWzWPQSgKQDs5GMfcldS/r/oyq3oY
+C0CdCLULU9XTv35ZPLmwXQtA2RPWKDH0079XSYZpdkkMQLq/W9Zj4NK/nExN
+Ek8MDUARExqklj3Sv7VgZy8J6g1AX+zJC+6u0L93N/XV7EsPQFCqQ4+aLNC/
+eWF6OuoGEUCWJ+Rqyg3Lv48tguoQfhFAoIihts3syb93/PNu+ygTQPnNsfFR
+38S/uUFHr8uGE0BHJqIbw+7Dv44vgpN5hxNAn4vWM/7zw79nGTAxBAEUQHpi
+OC+lHcO/1rGWqkYPFUCZMzlhbFLBv3Lm8f5texVAuQ3VhVBrwL+7kcEeY4IV
+QNRqEzJPA8C/dYfK20fVFUCBWw8I23S+v88eaL99QRZAP9yUlELdvL9WPm+E
+HgoXQBeb6nZclru/hAGUFGA1F0Cn+MFnV1y5vwiN469q5hdAGUsX5v2TuL8y
+dIUCKzwZQOkaDpIXi7S/OPQfGw==
+        "]]}, {}}, {}}, InsetBox[
+     TemplateBox[{"TS3931"},
+      "PointLegend",
+      DisplayFunction->(FormBox[
+        StyleBox[
+         StyleBox[
+          PaneBox[
+           TagBox[
+            GridBox[{{
+               TagBox[
+                GridBox[{{
+                   GraphicsBox[{{}, {
+                    Directive[
+                    EdgeForm[
+                    Directive[
+                    Opacity[0.3], 
+                    GrayLevel[0]]], 
+                    PointSize[0.7], 
+                    AbsoluteThickness[1.6], 
+                    RGBColor[1, 0, 1]], {
+                    Directive[
+                    EdgeForm[
+                    Directive[
+                    Opacity[0.3], 
+                    GrayLevel[0]]], 
+                    PointSize[0.7], 
+                    AbsoluteThickness[1.6], 
+                    RGBColor[1, 0, 1]], 
+                    PointBox[
+                    NCache[{
+                    Scaled[{
+                    Rational[1, 2], 
+                    Rational[1, 2]}]}, {
+                    Scaled[{0.5, 0.5}]}]]}}}, AspectRatio -> Full, 
+                    ImageSize -> {10, 10}, PlotRangePadding -> None, 
+                    ImagePadding -> Automatic, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #}}, 
+                 GridBoxAlignment -> {
+                  "Columns" -> {Center, Left}, "Rows" -> {{Baseline}}}, 
+                 AutoDelete -> False, 
+                 GridBoxDividers -> {
+                  "Columns" -> {{False}}, "Rows" -> {{False}}}, 
+                 GridBoxItemSize -> {"Columns" -> {{All}}, "Rows" -> {{All}}},
+                  GridBoxSpacings -> {
+                  "Columns" -> {{0.5}}, "Rows" -> {{0.8}}}], "Grid"]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{1}}, "Rows" -> {{0}}}], 
+            "Grid"], Alignment -> Left, AppearanceElements -> None, 
+           ImageMargins -> {{5, 5}, {5, 5}}, ImageSizeAction -> 
+           "ResizeToFit"], LineIndent -> 0, StripOnInput -> False], {
+         FontFamily -> "Arial"}, Background -> Automatic, StripOnInput -> 
+         False], TraditionalForm]& ),
+      Editable->True,
+      InterpretationFunction:>(RowBox[{"PointLegend", "[", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"Directive", "[", 
+               RowBox[{
+                 RowBox[{"PointSize", "[", "0.019444444444444445`", "]"}], 
+                 ",", 
+                 RowBox[{"AbsoluteThickness", "[", "1.6`", "]"}], ",", 
+                 InterpretationBox[
+                  ButtonBox[
+                   TooltipBox[
+                    RowBox[{
+                    GraphicsBox[{{
+                    GrayLevel[0], 
+                    RectangleBox[{0, 0}]}, {
+                    GrayLevel[0], 
+                    RectangleBox[{1, -1}]}, {
+                    RGBColor[1, 0, 1], 
+                    RectangleBox[{0, -1}, {2, 1}]}}, AspectRatio -> 1, Frame -> 
+                    True, FrameStyle -> 
+                    RGBColor[0.6666666666666666, 0., 0.6666666666666666], 
+                    FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
+                    Dynamic[{
+                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                    "\[InvisibleSpace]"}], "RGBColor[1, 0, 1]"], Appearance -> 
+                   None, BaseStyle -> {}, BaselinePosition -> Baseline, 
+                   DefaultBaseStyle -> {}, ButtonFunction :> 
+                   With[{Typeset`box$ = EvaluationBox[]}, 
+                    If[
+                    Not[
+                    AbsoluteCurrentValue["Deployed"]], 
+                    SelectionMove[Typeset`box$, All, Expression]; 
+                    FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+                    FrontEnd`Private`$ColorSelectorInitialColor = 
+                    RGBColor[1, 0, 1]; 
+                    FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+                    MathLink`CallFrontEnd[
+                    FrontEnd`AttachCell[Typeset`box$, 
+                    FrontEndResource["RGBColorValueSelector"], {
+                    0, {Left, Bottom}}, {Left, Top}, 
+                    "ClosingActions" -> {
+                    "SelectionDeparture", "ParentChanged", 
+                    "EvaluatorQuit"}]]]], BaseStyle -> Inherited, Evaluator -> 
+                   Automatic, Method -> "Preemptive"], 
+                  RGBColor[1, 0, 1], Editable -> False, Selectable -> 
+                  False]}], "]"}], "}"}], ",", 
+           RowBox[{"{", #, "}"}], ",", 
+           RowBox[{"LegendMarkers", "\[Rule]", 
+             RowBox[{"{", 
+               RowBox[{"{", 
+                 RowBox[{"False", ",", "Automatic"}], "}"}], "}"}]}], ",", 
+           RowBox[{"Joined", "\[Rule]", 
+             RowBox[{"{", "False", "}"}]}], ",", 
+           RowBox[{"LabelStyle", "\[Rule]", 
+             RowBox[{"{", "}"}]}], ",", 
+           RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}]}], "]"}]& )], 
+     Scaled[{0.85, 0.25}], ImageScaled[{0.5, 0.5}],
+     BaseStyle->{FontSize -> Larger},
+     FormatType->StandardForm]},
+   AspectRatio->0.8,
+   Axes->{False, False},
+   AxesLabel->{
+     FormBox["\"IQE\"", TraditionalForm], 
+     FormBox["\"Excitation Power Density\"", TraditionalForm]},
+   AxesOrigin->{0.5664931991293947, -0.8824885616063225},
+   CoordinatesToolOptions:>{"DisplayFunction" -> ({
+       Exp[
+        Part[#, 1]], 
+       Exp[
+        Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+       Exp[
+        Part[#, 1]], 
+       Exp[
+        Part[#, 2]]}& )},
+   DisplayFunction->Identity,
+   Frame->{{True, True}, {True, True}},
+   FrameLabel->{{None, None}, {None, None}},
+   FrameStyle->Automatic,
+   FrameTicks->FrontEndValueCache[{{
+       Charting`ScaledTicks[{Log, Exp}], 
+       Charting`ScaledFrameTicks[{Log, Exp}]}, {
+       Charting`ScaledTicks[{Log, Exp}], 
+       Charting`ScaledFrameTicks[{Log, Exp}]}}, {{{{-0.6931471805599453, 
+         FormBox[
+          TagBox[
+           InterpretationBox["\"0.5\"", 0.5, AutoDelete -> True], 
+           NumberForm[#, {
+             DirectedInfinity[1], 1.}]& ], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.5108256237659907, 
+         FormBox[
+          TagBox[
+           InterpretationBox["\"0.6\"", 0.6, AutoDelete -> True], 
+           NumberForm[#, {
+             DirectedInfinity[1], 1.}]& ], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.35667494393873245`, 
+         FormBox[
+          TagBox[
+           InterpretationBox["\"0.7\"", 0.7, AutoDelete -> True], 
+           NumberForm[#, {
+             DirectedInfinity[1], 1.}]& ], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.2231435513142097, 
+         FormBox[
+          TagBox[
+           InterpretationBox["\"0.8\"", 0.8, AutoDelete -> True], 
+           NumberForm[#, {
+             DirectedInfinity[1], 1.}]& ], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.10536051565782628`, 
+         FormBox[
+          TagBox[
+           InterpretationBox["\"0.9\"", 0.9, AutoDelete -> True], 
+           NumberForm[#, {
+             DirectedInfinity[1], 1.}]& ], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.916290731874155, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.8675005677047231, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.8209805520698302, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.7765287894989963, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.7339691750802004, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.6539264674066639, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.616186139423817, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.579818495252942, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.5447271754416722, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.4780358009429998, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.4462871026284195, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.4155154439616658, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.3856624808119846, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.3285040669720361, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.3011050927839216, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.2744368457017603, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.2484613592984996, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.19845093872383832`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.1743533871447778, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.15082288973458366`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.12783337150988489`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.08338160893905101, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.06187540371808753, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.040821994520255166`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.020202707317519466`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {0., 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}}, {{-0.6931471805599453, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.5108256237659907, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.35667494393873245`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.2231435513142097, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.10536051565782628`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.916290731874155, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.8675005677047231, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.8209805520698302, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.7765287894989963, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.7339691750802004, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.6539264674066639, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.616186139423817, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.579818495252942, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.5447271754416722, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.4780358009429998, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.4462871026284195, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.4155154439616658, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.3856624808119846, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.3285040669720361, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.3011050927839216, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.2744368457017603, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.2484613592984996, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.19845093872383832`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.1743533871447778, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.15082288973458366`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.12783337150988489`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.08338160893905101, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.06187540371808753, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.040821994520255166`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {-0.020202707317519466`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {0., 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}}}, {{{1.6094379124341003`, 
+         FormBox["5", TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {2.302585092994046, 
+         FormBox["10", TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {3.912023005428146, 
+         FormBox["50", TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {4.605170185988092, 
+         FormBox["100", TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {6.214608098422191, 
+         FormBox["500", TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {0., 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {0.6931471805599453, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {1.0986122886681098`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {1.3862943611198906`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {1.791759469228055, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {1.9459101490553132`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {2.0794415416798357`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {2.1972245773362196`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {2.995732273553991, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {3.4011973816621555`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {3.6888794541139363`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {4.0943445622221, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {4.248495242049359, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {4.382026634673881, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {4.499809670330265, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {5.298317366548036, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {5.703782474656201, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {5.991464547107982, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {6.396929655216146, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {6.551080335043404, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {6.684611727667927, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {6.802394763324311, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {6.907755278982137, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}}, {{1.6094379124341003`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {2.302585092994046, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {3.912023005428146, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {4.605170185988092, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {6.214608098422191, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.01, 0.}, {
+          AbsoluteThickness[0.1]}}, {0., 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {0.6931471805599453, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {1.0986122886681098`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {1.3862943611198906`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {1.791759469228055, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {1.9459101490553132`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {2.0794415416798357`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {2.1972245773362196`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {2.995732273553991, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {3.4011973816621555`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {3.6888794541139363`, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {4.0943445622221, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {4.248495242049359, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {4.382026634673881, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {4.499809670330265, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {5.298317366548036, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {5.703782474656201, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {5.991464547107982, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {6.396929655216146, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {6.551080335043404, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {6.684611727667927, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {6.802394763324311, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}, {6.907755278982137, 
+         FormBox[
+          InterpretationBox[
+           StyleBox[
+            
+            GraphicsBox[{}, ImageSize -> {0., 0.}, BaselinePosition -> 
+             Baseline], "CacheGraphics" -> False], 
+           Spacer[{0., 0.}]], TraditionalForm], {0.005, 0.}, {
+          AbsoluteThickness[0.1]}}}}}],
+   GridLines->FrontEndValueCache[{
+      Charting`ScaledTickValues[{Log, Exp}], 
+      Charting`ScaledTickValues[{Log, Exp}]}, {{{1.6094379124341003`, 
+        Directive[
+         AbsoluteThickness[0.1]]}, {2.302585092994046, 
+        Directive[
+         AbsoluteThickness[0.1]]}, {3.912023005428146, 
+        Directive[
+         AbsoluteThickness[0.1]]}, {4.605170185988092, 
+        Directive[
+         AbsoluteThickness[0.1]]}, {6.214608098422191, 
+        Directive[
+         AbsoluteThickness[0.1]]}}, {{-0.6931471805599453, 
+        Directive[
+         AbsoluteThickness[0.1]]}, {-0.5108256237659907, 
+        Directive[
+         AbsoluteThickness[0.1]]}, {-0.35667494393873245`, 
+        Directive[
+         AbsoluteThickness[0.1]]}, {-0.2231435513142097, 
+        Directive[
+         AbsoluteThickness[0.1]]}, {-0.10536051565782628`, 
+        Directive[
+         AbsoluteThickness[0.1]]}}}],
+   GridLinesStyle->Directive[
+     GrayLevel[0.4, 0.5], 
+     AbsoluteThickness[1], 
+     AbsoluteDashing[{1, 2}]],
+   Method->{},
+   PlotRange->{{0.6548357317512928, 
+    6.308757819552783}, {-0.8697545745426128, -0.08024737659261984}},
+   PlotRangeClipping->True,
+   PlotRangePadding->{{
+      Scaled[0.02], 
+      Scaled[0.02]}, {
+      Scaled[0.02], 
+      Scaled[0.05]}},
+   Ticks->{
+     Charting`ScaledTicks[{Log, Exp}], 
+     Charting`ScaledTicks[{Log, Exp}]}],
+  InterpretTemplate[Legended[
+    Graphics[{{}, {{{}, {
+         Hue[0.67, 0.6, 0.6], 
+         Directive[
+          PointSize[0.019444444444444445`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 0, 1]], 
+         Point[CompressedData["
+1:eJwBUQKu/SFib1JlAgAAACQAAAACAAAACZMuZKil6D87Gg2RoIDqvxDvoCy0
+y+s/NnA/jaFy6b+6vbn5Xfr0P/Xlsmq0qeS/x5GyxHEA9z+lOV8W5sbjv+yR
+yiczMfc/tsdMwGjC47+n5U+r0ST5PwQVrYCx+OK/wcedALbH/j/pl65UiTvh
+v0DKTiuHWgBAapkNzj1a4L8TW+tcUL0AQI6U1Zvf6N+/fELacWcrAkAooT84
+ql/ev9mZ88es/AJApgHPOf3P3L9m+mfdFYkEQBO+Mzwojtu//7Uy8viQBUA7
+hbcNKlzZv5NYM5YmPQdAAQ/VDfuV2L/CWzWPQSgKQDs5GMfcldS/r/oyq3oY
+C0CdCLULU9XTv35ZPLmwXQtA2RPWKDH0079XSYZpdkkMQLq/W9Zj4NK/nExN
+Ek8MDUARExqklj3Sv7VgZy8J6g1AX+zJC+6u0L93N/XV7EsPQFCqQ4+aLNC/
+eWF6OuoGEUCWJ+Rqyg3Lv48tguoQfhFAoIihts3syb93/PNu+ygTQPnNsfFR
+38S/uUFHr8uGE0BHJqIbw+7Dv44vgpN5hxNAn4vWM/7zw79nGTAxBAEUQHpi
+OC+lHcO/1rGWqkYPFUCZMzlhbFLBv3Lm8f5texVAuQ3VhVBrwL+7kcEeY4IV
+QNRqEzJPA8C/dYfK20fVFUCBWw8I23S+v88eaL99QRZAP9yUlELdvL9WPm+E
+HgoXQBeb6nZclru/hAGUFGA1F0Cn+MFnV1y5vwiN469q5hdAGUsX5v2TuL8y
+dIUCKzwZQOkaDpIXi7S/OPQfGw==
+          "]]}, {}}}, {}}, {DisplayFunction -> Identity, GridLines -> {
+        Charting`ScaledTickValues[{Log, Exp}], 
+        Charting`ScaledTickValues[{Log, Exp}]}, DisplayFunction -> Identity, 
+      DisplayFunction -> Identity, DisplayFunction -> Identity, 
+      PlotRangePadding -> {{
+         Scaled[0.02], 
+         Scaled[0.02]}, {
+         Scaled[0.02], 
+         Scaled[0.05]}}, 
+      AxesOrigin -> {0.5664931991293947, -0.8824885616063225}, 
+      PlotRange -> {{0.6548357317512928, 
+       6.308757819552783}, {-0.8697545745426128, -0.08024737659261984}}, 
+      DisplayFunction -> Identity, AspectRatio -> 0.8, Axes -> {False, False},
+       AxesLabel -> {"IQE", "Excitation Power Density"}, 
+      AxesOrigin -> {0.5664931991293947, -0.8824885616063225}, 
+      CoordinatesToolOptions -> {"DisplayFunction" -> ({
+          Exp[
+           Part[#, 1]], 
+          Exp[
+           Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+          Exp[
+           Part[#, 1]], 
+          Exp[
+           Part[#, 2]]}& )}, DisplayFunction :> Identity, 
+      Frame -> {{True, True}, {True, True}}, 
+      FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> Automatic, 
+      FrameTicks -> {{
+         Charting`ScaledTicks[{Log, Exp}], 
+         Charting`ScaledFrameTicks[{Log, Exp}]}, {
+         Charting`ScaledTicks[{Log, Exp}], 
+         Charting`ScaledFrameTicks[{Log, Exp}]}}, GridLines -> {
+        Charting`ScaledTickValues[{Log, Exp}], 
+        Charting`ScaledTickValues[{Log, Exp}]}, GridLinesStyle -> Directive[
+        GrayLevel[0.4, 0.5], 
+        AbsoluteThickness[1], 
+        AbsoluteDashing[{1, 2}]], Method -> {}, 
+      PlotRange -> {{0.6548357317512928, 
+       6.308757819552783}, {-0.8697545745426128, -0.08024737659261984}}, 
+      PlotRangeClipping -> True, PlotRangePadding -> {{
+         Scaled[0.02], 
+         Scaled[0.02]}, {
+         Scaled[0.02], 
+         Scaled[0.05]}}, Ticks -> {
+        Charting`ScaledTicks[{Log, Exp}], 
+        Charting`ScaledTicks[{Log, Exp}]}}], 
+    Placed[
+     Unevaluated[
+      PointLegend[{
+        Directive[
+         PointSize[0.019444444444444445`], 
+         AbsoluteThickness[1.6], 
+         RGBColor[1, 0, 1]]}, {$CellContext`TS3931}, 
+       LegendMarkers -> {{False, Automatic}}, Joined -> {False}, 
+       LabelStyle -> {}, LegendLayout -> "Column"]], {0.85, 0.25}, 
+     Identity]]& ],
+  AutoDelete->True,
+  Editable->True,
+  SelectWithContents->False,
+  Selectable->True]], "Output",
+ CellChangeTimes->{
+  3.712324746462219*^9, {3.712324783423179*^9, 3.7123247979335647`*^9}, {
+   3.712324829194398*^9, 3.712324839724684*^9}, 3.7123248862159166`*^9, {
+   3.712324939717344*^9, 3.712324970358162*^9}, 3.7123253273776765`*^9, {
+   3.7123253740489206`*^9, 3.71232539316943*^9}, 3.7123255394933295`*^9, 
+   3.7123257030376863`*^9, 3.712460684237383*^9, 3.7124628615554075`*^9, 
+   3.712462905806588*^9, {3.7124630285798597`*^9, 3.712463045700316*^9}, 
+   3.712463130992588*^9, 3.712463182133952*^9, 3.712463242555561*^9, 
+   3.7124633262677917`*^9, 3.712463379129201*^9, {3.71246353631339*^9, 
+   3.712463556713934*^9}, {3.7124637534891787`*^9, 3.712463781649929*^9}, 
+   3.7124638210609818`*^9, {3.712464453537836*^9, 3.7124644763484464`*^9}, 
+   3.712465050413742*^9, 3.7124651030751457`*^9, 3.712465170616947*^9, {
+   3.7124652665595036`*^9, 3.7124652871900554`*^9}, {3.71246534744166*^9, 
+   3.7124653522617865`*^9}, 3.7124656266691036`*^9, 3.7124657046611795`*^9, 
+   3.712465866225485*^9, 3.7124659292920904`*^9, {3.7124671658423004`*^9, 
+   3.712467187512878*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"par5", "[", 
+       RowBox[{"ai_", ",", "bi_"}], "]"}], "=", 
+      RowBox[{"FindFit", "[", 
+       RowBox[{
+        RowBox[{"sort1", "[", 
+         RowBox[{"[", 
+          RowBox[{"ai", " ", ";;", " ", "bi"}], "]"}], "]"}], ",", 
+        RowBox[{
+         RowBox[{"z1", "*", 
+          SqrtBox["y"]}], "+", " ", 
+         RowBox[{"z2", " ", "*", " ", "y"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"z1", ",", "z2"}], "}"}], ",", "y"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"eins", " ", "=", " ", 
+      RowBox[{"par5", "[", 
+       RowBox[{"ai", ",", "bi"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"a111", "=", 
+      RowBox[{"(", 
+       RowBox[{"z1", "/.", 
+        RowBox[{"eins", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ")"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"a222", "=", 
+      RowBox[{"(", 
+       RowBox[{"z2", "/.", 
+        RowBox[{"eins", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ")"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Erg1", "=", 
+      RowBox[{"Quiet", "@", 
+       RowBox[{"Solve", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"a111", "/", 
+             SqrtBox["a222"]}], "*", "B1"}], " ", "+", " ", 
+           RowBox[{"B1", "^", "2"}]}], " ", "\[Equal]", " ", 
+          RowBox[{"sort1", "[", 
+           RowBox[{"[", 
+            RowBox[{"n", ",", "2"}], "]"}], "]"}]}], ",", "B1"}], "]"}]}]}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"Ergebnisse", " ", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{"Erg1", ",", 
+        RowBox[{"{", 
+         RowBox[{"n", ",", "ai", ",", "bi", ",", "1"}], "}"}]}], "]"}]}], ";",
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"anm", "=", 
+      RowBox[{"B1", "/.", 
+       RowBox[{"Ergebnisse", "[", 
+        RowBox[{"[", 
+         RowBox[{";;", ",", "2"}], "]"}], "]"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"IQE1Tab", " ", "=", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"anm", "[", 
+          RowBox[{"[", ";;", "]"}], "]"}], "^", "2"}], ")"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"sort1", "[", 
+         RowBox[{"[", 
+          RowBox[{
+           RowBox[{"ai", ";;", " ", "bi"}], ",", "2"}], "]"}], "]"}], 
+        ")"}]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"snew", "=", 
+      RowBox[{"Sort", "[", 
+       RowBox[{"s", "[", 
+        RowBox[{"[", 
+         RowBox[{";;", ",", "2"}], "]"}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"snew1", "=", " ", 
+      RowBox[{"snew", "[", 
+       RowBox[{"[", 
+        RowBox[{"ai", ";;", "bi"}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"t11", "=", 
+      RowBox[{"Transpose", "[", 
+       RowBox[{"{", 
+        RowBox[{"snew1", ",", "IQE1Tab"}], "}"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ListPlot", "[", 
+      RowBox[{"t11", ",", 
+       RowBox[{"PlotLegends", "\[Rule]", 
+        RowBox[{"Placed", "[", 
+         RowBox[{
+          RowBox[{"{", "TS3931", " ", "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0.85", ",", "0.25"}], "}"}]}], "]"}]}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", "Full"}], ",", " ", 
+       RowBox[{"PlotTheme", "\[Rule]", "\"\<Detailed\>\""}], ",", 
+       RowBox[{"AspectRatio", "\[Rule]", " ", 
+        RowBox[{"0.8", "/", "1"}]}], ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<IQE\>\"", ",", "\"\<Excitation Power Density\>\""}], 
+         "}"}]}]}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"ai", ",", "1", ",", "\"\<Anzahl Messdaten bis\>\""}], "}"}], 
+      ",", "1", ",", "39", ",", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"bi", ",", "39", ",", "\"\<Anzahl Messdaten von\>\""}], "}"}], 
+      ",", "39", ",", "60", ",", "1"}], "}"}]}], "]"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.712466290799607*^9, 3.712466322050441*^9}, {
+   3.712466501975234*^9, 3.7124665385862117`*^9}, 3.7124671262012463`*^9, {
+   3.712467253744644*^9, 3.7124672543246613`*^9}, {3.7124672938057127`*^9, 
+   3.71246729553576*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`ai$$ = 1, $CellContext`bi$$ = 39, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`ai$$], 1, "Anzahl Messdaten bis"}, 1, 39, 1}, {{
+       Hold[$CellContext`bi$$], 39, "Anzahl Messdaten von"}, 39, 60, 1}}, 
+    Typeset`size$$ = {360., {143., 147.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`ai$1526168$$ = 0, $CellContext`bi$1526169$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`ai$$ = 1, $CellContext`bi$$ = 39}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`ai$$, $CellContext`ai$1526168$$, 0], 
+        Hold[$CellContext`bi$$, $CellContext`bi$1526169$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ($CellContext`par5[
+          Pattern[$CellContext`ai, 
+           Blank[]], 
+          Pattern[$CellContext`bi, 
+           Blank[]]] = FindFit[
+          Part[$CellContext`sort1, 
+           
+           Span[$CellContext`ai, $CellContext`bi]], $CellContext`z1 \
+$CellContext`y^
+            Rational[
+             1, 2] + $CellContext`z2 $CellContext`y, {$CellContext`z1, \
+$CellContext`z2}, $CellContext`y]; $CellContext`eins = \
+$CellContext`par5[$CellContext`ai$$, $CellContext`bi$$]; $CellContext`a111 = 
+        ReplaceAll[$CellContext`z1, 
+          Part[$CellContext`eins, 1]]; $CellContext`a222 = 
+        ReplaceAll[$CellContext`z2, 
+          Part[$CellContext`eins, 2]]; $CellContext`Erg1 = Quiet[
+          
+          Solve[($CellContext`a111/$CellContext`a222^
+              Rational[1, 2]) $CellContext`B1 + $CellContext`B1^2 == 
+           Part[$CellContext`sort1, $CellContext`n, 
+             2], $CellContext`B1]]; $CellContext`Ergebnisse = 
+        Table[$CellContext`Erg1, {$CellContext`n, $CellContext`ai$$, \
+$CellContext`bi$$, 1}]; $CellContext`anm = ReplaceAll[$CellContext`B1, 
+          Part[$CellContext`Ergebnisse, 
+           Span[1, All], 2]]; $CellContext`IQE1Tab = Part[$CellContext`anm, 
+            Span[1, All]]^2/Part[$CellContext`sort1, 
+          Span[$CellContext`ai$$, $CellContext`bi$$], 2]; $CellContext`snew = 
+        Sort[
+          Part[$CellContext`s, 
+           Span[1, All], 2]]; $CellContext`snew1 = Part[$CellContext`snew, 
+          Span[$CellContext`ai$$, $CellContext`bi$$]]; $CellContext`t11 = 
+        Transpose[{$CellContext`snew1, $CellContext`IQE1Tab}]; 
+       ListPlot[$CellContext`t11, PlotLegends -> 
+         Placed[{$CellContext`TS3931}, {0.85, 0.25}], PlotRange -> Full, 
+         PlotTheme -> "Detailed", AspectRatio -> 0.8/1, 
+         AxesLabel -> {"IQE", "Excitation Power Density"}]), 
+      "Specifications" :> {{{$CellContext`ai$$, 1, "Anzahl Messdaten bis"}, 1,
+          39, 1}, {{$CellContext`bi$$, 39, "Anzahl Messdaten von"}, 39, 60, 
+         1}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {202., 209.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.712467127971293*^9, 3.7124672553946886`*^9, 
+  3.7124672961457744`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7124670352623644`*^9, 3.7124670382624583`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670181619062`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467018571931*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467018721924*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467018881928*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467019031933*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670192019367`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.71246701936194*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670195019417`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467019641948*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467019791951*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670199519567`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670201119585`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670202819633`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467020441967*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670205919714`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670207319756`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.71246702089198*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670210319867`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670211819906`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467021331992*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467021471998*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670216320024`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670217920084`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670219520082`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467022082013*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467022212019*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467022342019*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670224620247`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670226720304`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467022822033*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467023002037*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670231520414`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467023292057*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467023432048*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670235720534`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670237020583`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467023842058*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467024012063*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670241620674`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670243320756`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670244620743`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670245920825`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670247820854`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467024942089*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.71246702507209*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467025222097*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467025362098*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670254921026`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467025642108*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670258121123`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467025942119*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467026102121*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670262421227`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670263821297`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670265321302`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467026662137*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.71246702679214*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467026952143*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670271221457`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670272621512`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670273921556`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467027532157*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670276821623`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467027822166*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670279521694`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467028082173*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467028222175*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670283621807`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670285221853`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467028792192*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670290221977`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670292322054`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670294722104`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467029752219*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670299622245`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467030182228*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467030402235*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467030742245*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467030872246*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670311222525`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467031262256*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467031422261*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670315722666`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.71246703172227*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467031862274*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670319922776`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670321322827`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670322622843`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467032402288*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467032552292*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670327022963`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670328422976`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670329723034`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670331123095`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670333223133`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670335123167`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467033642321*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670337823253`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670339223285`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467034062332*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670342023354`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670343423414`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670344723444`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670346123486`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670347423506`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670348723555`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467035012359*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670351423597`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670354223766`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467035572372*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467035712376*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670358423796`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670359823823`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670361123886`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670362523923`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467036392395*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467036532398*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670366624036`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670367924037`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670369324074`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467037062414*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670372024155`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467037482422*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467037742429*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670379624376`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7124670381824408`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.712467038412449*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1680, 967},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 286, 6, 99, "Input"],
+Cell[CellGroupData[{
+Cell[869, 30, 111, 1, 70, "Section"],
+Cell[983, 33, 1680, 51, 212, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2700, 89, 160, 2, 70, "Section"],
+Cell[CellGroupData[{
+Cell[2885, 95, 265, 3, 52, "Input"],
+Cell[3153, 100, 5036, 125, 132, "Output"]
+}, Open  ]],
+Cell[8204, 228, 2811, 63, 192, "Input"],
+Cell[11018, 293, 7712, 180, 635, "Input"],
+Cell[18733, 475, 94, 1, 31, InheritFromParent],
+Cell[18830, 478, 94, 1, 31, InheritFromParent],
+Cell[CellGroupData[{
+Cell[18949, 483, 3095, 81, 203, "Input"],
+Cell[22047, 566, 3318, 64, 374, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25402, 635, 5174, 135, 369, "Input"],
+Cell[30579, 772, 578, 12, 21, "Message"],
+Cell[31160, 786, 50251, 1197, 306, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[81448, 1988, 4327, 119, 337, "Input"],
+Cell[85778, 2109, 3818, 74, 428, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[89633, 2188, 96, 1, 31, InheritFromParent],
+Cell[89732, 2191, 525, 11, 21, "Message"],
+Cell[90260, 2204, 523, 11, 21, "Message"],
+Cell[90786, 2217, 523, 11, 21, "Message"],
+Cell[91312, 2230, 523, 11, 21, "Message"],
+Cell[91838, 2243, 523, 11, 21, "Message"],
+Cell[92364, 2256, 525, 11, 21, "Message"],
+Cell[92892, 2269, 522, 11, 21, "Message"],
+Cell[93417, 2282, 525, 11, 21, "Message"],
+Cell[93945, 2295, 523, 11, 21, "Message"],
+Cell[94471, 2308, 523, 11, 21, "Message"],
+Cell[94997, 2321, 525, 11, 21, "Message"],
+Cell[95525, 2334, 525, 11, 21, "Message"],
+Cell[96053, 2347, 525, 11, 21, "Message"],
+Cell[96581, 2360, 523, 11, 21, "Message"],
+Cell[97107, 2373, 525, 11, 21, "Message"],
+Cell[97635, 2386, 525, 11, 21, "Message"],
+Cell[98163, 2399, 522, 11, 21, "Message"],
+Cell[98688, 2412, 525, 11, 21, "Message"],
+Cell[99216, 2425, 525, 11, 21, "Message"],
+Cell[99744, 2438, 523, 11, 21, "Message"],
+Cell[100270, 2451, 523, 11, 21, "Message"],
+Cell[100796, 2464, 525, 11, 21, "Message"],
+Cell[101324, 2477, 525, 11, 21, "Message"],
+Cell[101852, 2490, 525, 11, 21, "Message"],
+Cell[102380, 2503, 523, 11, 21, "Message"],
+Cell[102906, 2516, 523, 11, 21, "Message"],
+Cell[103432, 2529, 523, 11, 21, "Message"],
+Cell[103958, 2542, 525, 11, 21, "Message"],
+Cell[104486, 2555, 525, 11, 21, "Message"],
+Cell[105014, 2568, 523, 11, 21, "Message"],
+Cell[105540, 2581, 523, 11, 21, "Message"],
+Cell[106066, 2594, 525, 11, 21, "Message"],
+Cell[106594, 2607, 523, 11, 21, "Message"],
+Cell[107120, 2620, 523, 11, 21, "Message"],
+Cell[107646, 2633, 525, 11, 21, "Message"],
+Cell[108174, 2646, 525, 11, 21, "Message"],
+Cell[108702, 2659, 523, 11, 21, "Message"],
+Cell[109228, 2672, 523, 11, 21, "Message"],
+Cell[109754, 2685, 525, 11, 21, "Message"],
+Cell[110282, 2698, 525, 11, 21, "Message"],
+Cell[110810, 2711, 525, 11, 21, "Message"],
+Cell[111338, 2724, 525, 11, 21, "Message"],
+Cell[111866, 2737, 525, 11, 21, "Message"],
+Cell[112394, 2750, 523, 11, 21, "Message"],
+Cell[112920, 2763, 522, 11, 21, "Message"],
+Cell[113445, 2776, 523, 11, 21, "Message"],
+Cell[113971, 2789, 523, 11, 21, "Message"],
+Cell[114497, 2802, 525, 11, 21, "Message"],
+Cell[115025, 2815, 523, 11, 21, "Message"],
+Cell[115551, 2828, 525, 11, 21, "Message"],
+Cell[116079, 2841, 523, 11, 21, "Message"],
+Cell[116605, 2854, 523, 11, 21, "Message"],
+Cell[117131, 2867, 525, 11, 21, "Message"],
+Cell[117659, 2880, 525, 11, 21, "Message"],
+Cell[118187, 2893, 525, 11, 21, "Message"],
+Cell[118715, 2906, 523, 11, 21, "Message"],
+Cell[119241, 2919, 522, 11, 21, "Message"],
+Cell[119766, 2932, 523, 11, 21, "Message"],
+Cell[120292, 2945, 525, 11, 21, "Message"],
+Cell[120820, 2958, 525, 11, 21, "Message"],
+Cell[121348, 2971, 525, 11, 21, "Message"],
+Cell[121876, 2984, 523, 11, 21, "Message"],
+Cell[122402, 2997, 525, 11, 21, "Message"],
+Cell[122930, 3010, 523, 11, 21, "Message"],
+Cell[123456, 3023, 525, 11, 21, "Message"],
+Cell[123984, 3036, 523, 11, 21, "Message"],
+Cell[124510, 3049, 523, 11, 21, "Message"],
+Cell[125036, 3062, 525, 11, 21, "Message"],
+Cell[125564, 3075, 525, 11, 21, "Message"],
+Cell[126092, 3088, 523, 11, 21, "Message"],
+Cell[126618, 3101, 525, 11, 21, "Message"],
+Cell[127146, 3114, 525, 11, 21, "Message"],
+Cell[127674, 3127, 525, 11, 21, "Message"],
+Cell[128202, 3140, 523, 11, 21, "Message"],
+Cell[128728, 3153, 525, 11, 21, "Message"],
+Cell[129256, 3166, 523, 11, 21, "Message"],
+Cell[129782, 3179, 523, 11, 21, "Message"],
+Cell[130308, 3192, 523, 11, 21, "Message"],
+Cell[130834, 3205, 523, 11, 21, "Message"],
+Cell[131360, 3218, 525, 11, 21, "Message"],
+Cell[131888, 3231, 523, 11, 21, "Message"],
+Cell[132414, 3244, 523, 11, 21, "Message"],
+Cell[132940, 3257, 525, 11, 21, "Message"],
+Cell[133468, 3270, 522, 11, 21, "Message"],
+Cell[133993, 3283, 523, 11, 21, "Message"],
+Cell[134519, 3296, 525, 11, 21, "Message"],
+Cell[135047, 3309, 525, 11, 21, "Message"],
+Cell[135575, 3322, 525, 11, 21, "Message"],
+Cell[136103, 3335, 523, 11, 21, "Message"],
+Cell[136629, 3348, 523, 11, 21, "Message"],
+Cell[137155, 3361, 525, 11, 21, "Message"],
+Cell[137683, 3374, 525, 11, 21, "Message"],
+Cell[138211, 3387, 525, 11, 21, "Message"],
+Cell[138739, 3400, 525, 11, 21, "Message"],
+Cell[139267, 3413, 525, 11, 21, "Message"],
+Cell[139795, 3426, 525, 11, 21, "Message"],
+Cell[140323, 3439, 523, 11, 21, "Message"],
+Cell[140849, 3452, 525, 11, 21, "Message"],
+Cell[141377, 3465, 525, 11, 21, "Message"],
+Cell[141905, 3478, 523, 11, 21, "Message"],
+Cell[142431, 3491, 525, 11, 21, "Message"],
+Cell[142959, 3504, 525, 11, 21, "Message"],
+Cell[143487, 3517, 525, 11, 21, "Message"],
+Cell[144015, 3530, 525, 11, 21, "Message"],
+Cell[144543, 3543, 525, 11, 21, "Message"],
+Cell[145071, 3556, 525, 11, 21, "Message"],
+Cell[145599, 3569, 523, 11, 21, "Message"],
+Cell[146125, 3582, 525, 11, 21, "Message"],
+Cell[146653, 3595, 525, 11, 21, "Message"],
+Cell[147181, 3608, 523, 11, 21, "Message"],
+Cell[147707, 3621, 523, 11, 21, "Message"],
+Cell[148233, 3634, 525, 11, 21, "Message"],
+Cell[148761, 3647, 525, 11, 21, "Message"],
+Cell[149289, 3660, 525, 11, 21, "Message"],
+Cell[149817, 3673, 525, 11, 21, "Message"],
+Cell[150345, 3686, 523, 11, 21, "Message"],
+Cell[150871, 3699, 523, 11, 21, "Message"],
+Cell[151397, 3712, 525, 11, 21, "Message"],
+Cell[151925, 3725, 525, 11, 21, "Message"],
+Cell[152453, 3738, 525, 11, 21, "Message"],
+Cell[152981, 3751, 523, 11, 21, "Message"],
+Cell[153507, 3764, 525, 11, 21, "Message"],
+Cell[154035, 3777, 523, 11, 21, "Message"],
+Cell[154561, 3790, 523, 11, 21, "Message"],
+Cell[155087, 3803, 525, 11, 21, "Message"],
+Cell[155615, 3816, 525, 11, 21, "Message"],
+Cell[156143, 3829, 523, 11, 21, "Message"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
